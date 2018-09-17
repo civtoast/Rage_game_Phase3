@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: 99eec31a91d6e2f45ac0b91cba6a6697
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Chans
+    100002: Chans_puller
+    100004: Dore_Way
+    100006: Floor
+    100008: Floor-Slab
+    100010: Floor-Slab-Edge_Bevel
+    100012: Floor-Slab-Side_Bevel
+    100014: Floting_Plat
+    100016: Floting_Plat.001
+    100018: Gate
+    100020: Lever
+    100022: Lever_WallMount
+    100024: Pipe
+    100026: Raling
+    100028: Sluge
+    100030: //RootNode
+    100032: Spiks
+    100034: Wall
+    100036: Wall_Dore
+    400000: Chans
+    400002: Chans_puller
+    400004: Dore_Way
+    400006: Floor
+    400008: Floor-Slab
+    400010: Floor-Slab-Edge_Bevel
+    400012: Floor-Slab-Side_Bevel
+    400014: Floting_Plat
+    400016: Floting_Plat.001
+    400018: Gate
+    400020: Lever
+    400022: Lever_WallMount
+    400024: Pipe
+    400026: Raling
+    400028: Sluge
+    400030: Spiks
+    400032: //RootNode
+    400034: Wall
+    400036: Wall_Dore
+    2100000: No Name
+    2100002: Material
+    2100004: Sluge
+    2100006: Pipe
+    2300000: Chans
+    2300002: Chans_puller
+    2300004: Dore_Way
+    2300006: Floor
+    2300008: Floor-Slab
+    2300010: Floor-Slab-Edge_Bevel
+    2300012: Floor-Slab-Side_Bevel
+    2300014: Floting_Plat
+    2300016: Floting_Plat.001
+    2300018: Gate
+    2300020: Lever
+    2300022: Lever_WallMount
+    2300024: Pipe
+    2300026: Raling
+    2300028: Sluge
+    2300030: Spiks
+    2300032: Wall
+    2300034: Wall_Dore
+    2300036: //RootNode
+    3300000: Chans
+    3300002: Chans_puller
+    3300004: Dore_Way
+    3300006: Floor
+    3300008: Floor-Slab
+    3300010: Floor-Slab-Edge_Bevel
+    3300012: Floor-Slab-Side_Bevel
+    3300014: Floting_Plat
+    3300016: Floting_Plat.001
+    3300018: Gate
+    3300020: Lever
+    3300022: Lever_WallMount
+    3300024: Pipe
+    3300026: Raling
+    3300028: Sluge
+    3300030: Spiks
+    3300032: Wall
+    3300034: Wall_Dore
+    3300036: //RootNode
+    4300000: Spiks
+    4300002: Floor-Slab-Edge_Bevel
+    4300004: Floor-Slab-Side_Bevel
+    4300006: Raling
+    4300008: Floting_Plat.001
+    4300010: Floting_Plat
+    4300012: Lever
+    4300014: Lever_WallMount
+    4300016: Wall
+    4300018: Dore_Way
+    4300020: Gate
+    4300022: Wall_Dore
+    4300024: Floor-Slab
+    4300026: Floor
+    4300028: Chans_puller
+    4300030: Chans
+    4300032: Sluge
+    4300034: Pipe
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
