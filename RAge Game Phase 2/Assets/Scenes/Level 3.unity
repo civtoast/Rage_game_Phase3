@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: 1934556246}
   - {fileID: 467034663}
   enemy: {fileID: 2076299310}
+  Timer: 1
 --- !u!1 &467034662
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +588,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 1b02e7aab46f53144b7ad0a186fea801, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 53a9480febe574d4495351da4e40f27e, type: 2}
+      objectReference: {fileID: 2100000, guid: cd16c8fe9bddf174683d91dac1c05eb4, type: 2}
     - target: {fileID: 100000, guid: 1b02e7aab46f53144b7ad0a186fea801, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -828,3 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83d705d46276ff42ba60eecefe6d014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemycount: 0
+  shouldspawn: 1
+  times: 0
