@@ -69,8 +69,11 @@ public class Playercontroller : MonoBehaviour {
                 Attack2();
             }
         }
-        
 
+        if(controler.isGrounded)
+        {
+            animator.SetBool("Jumptrue", false);
+        }
     }
     
     
@@ -82,10 +85,7 @@ public class Playercontroller : MonoBehaviour {
             velocityY = jumpvelocity;
             StartCoroutine(Wait());
         }
-        else
-        {
-            animator.SetBool("Jumptrue", false);
-        }
+       
         
        
     }
