@@ -1158,6 +1158,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1619800777266014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4942341977444294}
+  - component: {fileID: 114749596748514062}
+  m_Layer: 0
+  m_Name: Camera rig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1625622871298412
 GameObject:
   m_ObjectHideFlags: 1
@@ -2426,10 +2442,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642215317991246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 228, y: 3.12, z: 144.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4607638043156404}
+  - {fileID: 4942341977444294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2971,7 +2988,7 @@ Transform:
   m_GameObject: {fileID: 1235341695875450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4894031135611296}
   - {fileID: 4226220952122172}
@@ -3585,6 +3602,19 @@ Transform:
   m_Father: {fileID: 4974028078263840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4942341977444294
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619800777266014}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.5299997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4314827048399826}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4949122323342740
 Transform:
   m_ObjectHideFlags: 1
@@ -3692,6 +3722,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114749596748514062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619800777266014}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8d35cb28e7fbc4faa2b90f34780c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockcursor: 1
+  mousesensitivity: 10
+  target: {fileID: 4314827048399826}
+  targetdist: 0
+  pitchminmax: {x: -40, y: 85.86}
+  rotationsmoothtime: 0.12
 --- !u!114 &114882654126487086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3704,13 +3751,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkspeed: 6
-  runspeed: 14
+  runspeed: 16
   turnsmoothtime: 0.2
-  jumpheight: 1
+  jumpheight: 3
   speedsmoothtime: 0.1
   gravity: -12
   cameraT: {fileID: 0}
   jumpspeed: 0.5
+  stop: 0
 --- !u!137 &137076353927621416
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -4810,10 +4858,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 11
+  m_Height: 7
   m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Center: {x: 0, y: 3.6, z: 0}
