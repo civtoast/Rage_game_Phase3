@@ -64,6 +64,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135897737029240}
+  - component: {fileID: 135690524914830340}
+  - component: {fileID: 95185593163378662}
+  - component: {fileID: 114386243793584440}
   m_Layer: 0
   m_Name: Slime king
   m_TagString: Untagged
@@ -126,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4046423471035588}
   - component: {fileID: 95274664863482362}
-  - component: {fileID: 135523375231835028}
   - component: {fileID: 114040358731196104}
   m_Layer: 0
   m_Name: Slime_King
@@ -308,8 +310,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423500655421732}
   m_LocalRotation: {x: 0, y: 0.9986295, z: -0, w: -0.052335896}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.8, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4595953850864200}
   - {fileID: 4517744037510544}
@@ -365,8 +367,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193105546594916}
   m_LocalRotation: {x: -0, y: 0.9998141, z: -0, w: -0.01928353}
-  m_LocalPosition: {x: -0.043704215, y: 0.09665346, z: -0.112015046}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.043704215, y: 1.5, z: -0.112015046}
+  m_LocalScale: {x: 3, y: 2, z: 3}
   m_Children:
   - {fileID: 4633898478475366}
   m_Father: {fileID: 4135897737029240}
@@ -580,6 +582,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614899429238288}
   m_Mesh: {fileID: 4300000, guid: bf9887fc3161aeb4e8a59a10807d980a, type: 3}
+--- !u!95 &95185593163378662
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269292722988514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d0a861e08d8c19c4ba70fd90448e5a46, type: 3}
+  m_Controller: {fileID: 9100000, guid: 26c4623be3649b54196a0fc62036709d, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95274664863482362
 Animator:
   serializedVersion: 3
@@ -609,18 +629,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356c1ed4f49fc664f85144d2b9a86577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135523375231835028
+--- !u!114 &114386243793584440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269292722988514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b5042eefb834e48b565688354f812b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95185593163378662}
+--- !u!135 &135690524914830340
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1423500655421732}
+  m_GameObject: {fileID: 1269292722988514}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 39.47444
+  m_Center: {x: 0, y: 9.993511, z: -23.1}
 --- !u!137 &137893647920440520
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
