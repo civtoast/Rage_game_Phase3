@@ -9,8 +9,8 @@ public class Bosspres : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        animator.SetFloat("Blend", 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +20,10 @@ public class Bosspres : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            animator.SetFloat("Blend", 1);
+           
+
+            animator.SetFloat("Blend", Random.Range(1, 3));
+
         }
     }
     private void OnTriggerExit(Collider other)

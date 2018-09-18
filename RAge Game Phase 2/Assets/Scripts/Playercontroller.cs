@@ -69,15 +69,22 @@ public class Playercontroller : MonoBehaviour {
                 Attack2();
             }
         }
+        
 
     }
+    
+    
     void Jump() {
         if (controler.isGrounded)
         {
+            animator.SetBool("Jumptrue", true);
             float jumpvelocity = Mathf.Sqrt(-2 * gravity * jumpheight);
             velocityY = jumpvelocity;
-            
-            
+            StartCoroutine(Wait());
+        }
+        else
+        {
+            animator.SetBool("Jumptrue", false);
         }
         
        
@@ -98,13 +105,17 @@ public class Playercontroller : MonoBehaviour {
     }
 
     private IEnumerator Wait()
-    {
-
-      
+    {    
         yield return new WaitForSeconds(1.5f/2);
         animator.SetBool("Attack", false);
-        animator.SetBool("Attack2", false);
+        animator.SetBool("Attack2", false);       
         stop = false;
-
+     
+        
     }
+
+
+
+
+
 }
