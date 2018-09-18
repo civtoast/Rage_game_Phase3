@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Breakplatform : MonoBehaviour {
-    public Animator anim;
+    
 	// Use this for initialization
 	void Start () {
-        //anim.SetBool("Destroy", false);
+       
     }
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class Breakplatform : MonoBehaviour {
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-           // anim.SetBool("Destroy", true);
+           
             Destroy(this.gameObject);
         }
     }
