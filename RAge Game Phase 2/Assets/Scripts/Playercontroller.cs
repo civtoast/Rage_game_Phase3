@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour {
     public float walkspeed = 2;
@@ -20,19 +21,43 @@ public class Playercontroller : MonoBehaviour {
     public float jumpspeed = 0.5f;
     CharacterController controler;
     public bool stop;
-   
+    [Space]
+    [Header("Attacking varables")]
+    public Enemy targetedEnemy = null;
+    public TargetRange targetRange;
+    public TrackObject trackObject;
+    [Space]
+    [Header("Player Stats")]
+    public float maxHealth = 100;
+    protected float currentHealth;
+    [Space]
+    [Header("UI elements")]
+    public Text healthText;
+    public Slider healthBar;
+
     void Start () {
         animator = GetComponent<Animator>();
         controler = GetComponent<CharacterController> () ;
         stop = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        trackObject.gameObject.SetActive(false);
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+
+
+    }
+
+    private void UpdateHealthUI()
+    {
+        healthBar.value = currentHealth / maxHealth;
+        healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
+    }
+
+    // Update is called once per frame
+
+
+    void Update () {
         if (stop == false)
         {
-         
-
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             Vector2 inputDir = input.normalized;
 
@@ -94,13 +119,29 @@ public class Playercontroller : MonoBehaviour {
         stop = true; 
         animator.SetBool("Attack", true);
         StartCoroutine(Wait());
-       
+        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 2)
+        {
+            targetedEnemy.TakeDamage(20);
+        }
+        else
+        {
+            print("Target too far away!");
+        }
+
     }
     void Attack2()
     {
         stop = true;
         animator.SetBool("Attack2", true);
         StartCoroutine(Wait());
+        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 2)
+        {
+            targetedEnemy.TakeDamage(20);
+        }
+        else
+        {
+            print("Target too far away!");
+        }
 
     }
 
@@ -114,8 +155,46 @@ public class Playercontroller : MonoBehaviour {
         
     }
 
+    private void SelectEnemy()
+    {
+        targetedEnemy = targetRange.GetNextEnemy();
+        if (targetedEnemy != null)
+        {
+            trackObject.gameObject.SetActive(true);
+            trackObject.target = targetedEnemy.transform;
+        }
+        else
+        {
+            trackObject.gameObject.SetActive(false);
+        }
+    }
 
+    public void TakeDamage(float attackDamage)
+    {
+        print("Attacked");
+        //simple example of mitigations
+        if (UnityEngine.Random.value < 0.1f)
+        {
+            currentHealth -= attackDamage;
+        }
+        else
+        {
+            currentHealth -= attackDamage * 0.2f;  //this would ultimately be determined by the minitgations
+        }
 
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+           
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
 
+            print("You're DEAD!");
+
+        }
+
+        UpdateHealthUI();
+    }
+    
+    
 
 }
