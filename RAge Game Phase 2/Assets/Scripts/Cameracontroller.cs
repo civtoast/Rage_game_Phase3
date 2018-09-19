@@ -105,10 +105,13 @@ public class Cameracontroller : MonoBehaviour {
     {
         Ray ray = new Ray(target.position, -target.forward);
         RaycastHit hit;
-        if (Physics.SphereCast (ray , 0.5f , out hit,0.7f,colisionmask))
+        if (Physics.SphereCast(ray, 0.5f, out hit, 0.7f, colisionmask))
         {
             pitchlock = true;
-
+        }
+        else
+        {
+            pitchlock = false;
         }
     }
 }
