@@ -3135,6 +3135,7 @@ GameObject:
   - component: {fileID: 23448799127734030}
   - component: {fileID: 114741108316899814}
   - component: {fileID: 65060422972864378}
+  - component: {fileID: 65545990017083916}
   m_Layer: 0
   m_Name: Floting_Disc
   m_TagString: Untagged
@@ -14206,6 +14207,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.927353, y: 0.5, z: 12.000004}
   m_Center: {x: 4.5363255, y: -0.011257142, z: -6.004237}
+--- !u!65 &65545990017083916
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913439924047686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2858267, y: 0.8544239, z: 2.267608}
+  m_Center: {x: -0.046068907, y: 0.23252374, z: -0.0077801943}
 --- !u!65 &65549370299265688
 BoxCollider:
   m_ObjectHideFlags: 1
