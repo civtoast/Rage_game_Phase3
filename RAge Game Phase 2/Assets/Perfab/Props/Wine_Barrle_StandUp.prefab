@@ -9,47 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1894052620264276}
+  m_RootGameObject: {fileID: 1379700791017794}
   m_IsPrefabAsset: 1
---- !u!1 &1894052620264276
+--- !u!1 &1379700791017794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4800135005654720}
-  - component: {fileID: 33458406077265710}
-  - component: {fileID: 23015034798233490}
-  - component: {fileID: 114295432611788630}
-  - component: {fileID: 65177935797075120}
-  - component: {fileID: 54159774356343722}
+  - component: {fileID: 4773122809449904}
+  - component: {fileID: 33596102941391448}
+  - component: {fileID: 23523352043776140}
+  - component: {fileID: 65686108251626822}
   m_Layer: 0
-  m_Name: Floting_Disc
+  m_Name: Wine_Barrle_StandUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4800135005654720
+--- !u!4 &4773122809449904
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -83.55798, y: 19.032784, z: 134.42194}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1379700791017794}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.5, y: 1.2078145, z: 19.3}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23015034798233490
+--- !u!23 &23523352043776140
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
+  m_GameObject: {fileID: 1379700791017794}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +57,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ab51a243f65a2de4e894d9a4d6a7482e, type: 2}
+  - {fileID: 2100000, guid: 1dea80260bff9024cb04d0b688a755f4, type: 3}
+  - {fileID: 2100002, guid: 1dea80260bff9024cb04d0b688a755f4, type: 3}
+  - {fileID: 2100004, guid: 1dea80260bff9024cb04d0b688a755f4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,48 +79,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33458406077265710
+--- !u!33 &33596102941391448
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
-  m_Mesh: {fileID: 4300000, guid: 53ec3152f3f2b83428b32410163fd72f, type: 3}
---- !u!54 &54159774356343722
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &65177935797075120
+  m_GameObject: {fileID: 1379700791017794}
+  m_Mesh: {fileID: 4300000, guid: 1dea80260bff9024cb04d0b688a755f4, type: 3}
+--- !u!65 &65686108251626822
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
+  m_GameObject: {fileID: 1379700791017794}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.38482657, z: 2}
-  m_Center: {x: 0, y: -0.0022749156, z: 0}
---- !u!114 &114295432611788630
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894052620264276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07f98c0850955f047935da9af9750e42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.6292576, y: 0.81000006, z: 0.6292576}
+  m_Center: {x: 0, y: 0.405248, z: 0}
