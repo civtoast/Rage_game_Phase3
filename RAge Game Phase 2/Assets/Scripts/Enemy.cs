@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public Slider healthBar;
     public Renderer mesh;
     
+    
 
     // Use this for initialization
     void Start()
@@ -82,7 +83,8 @@ public class Enemy : MonoBehaviour
         {
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
             agent.SetDestination(player.transform.position);
-            player.TakeDamage(10);
+             
+            //player.TakeDamage(10);
             
         }
         timeToNextAttack -= Time.deltaTime;
