@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public Animator animator;
     public Enemycontoller enemy;
+    private bool dmghit;
     [Space]
     [Header("Enemy Stats")]
     public float maxHealth = 100;
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour
             state = EnemyState.Chase;
             animator.SetBool("Attack", true);
             wpSolver.StopPatrolling();
+            dmghit = true;
         }
     }
 
@@ -71,6 +73,8 @@ public class Enemy : MonoBehaviour
                  //state = EnemyState.Patrol;
                  //wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
+                dmghit = false;
+                    
             }
         }
     }
@@ -79,11 +83,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Walk", agent.velocity.magnitude);
-        if (state == EnemyState.Chase && timeToNextAttack < 0)
+         agent.SetDestination(player.transform.position);
+        if (state == EnemyState.Chase && timeToNextAttack < 0&&dmghit==true)
         {
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
             agent.SetDestination(player.transform.position);
-             
+
             play.TakeDamage(10);
             
         }

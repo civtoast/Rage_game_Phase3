@@ -13,9 +13,9 @@ public class Breakplatform : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void OnCollisionExit(Collision coll)
+    private void OnTriggerExit(Collider other)
     {
-        if (coll.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
            
             Destroy(this.gameObject);
