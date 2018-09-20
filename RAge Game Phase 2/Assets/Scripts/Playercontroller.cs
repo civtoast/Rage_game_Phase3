@@ -85,17 +85,21 @@ public class Playercontroller : MonoBehaviour {
             animator.SetFloat("Forward", animationSpeedPercent, speedsmoothtime, Time.deltaTime);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                
 
                 Attack();
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-
+             
                 Attack2();
             }
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SelectEnemy();
+
         }
 
-        if(controler.isGrounded)
+        if (controler.isGrounded)
         {
             animator.SetBool("Jumptrue", false);
         }
