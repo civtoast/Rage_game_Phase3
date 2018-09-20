@@ -102,6 +102,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float attackDamage)
     {
+        print("wow");
         //simple example of damage calculators and mitigations
         if (Random.value < 0.1f)
         {

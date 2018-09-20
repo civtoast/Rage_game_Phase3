@@ -56,6 +56,8 @@ public class Playercontroller : MonoBehaviour {
 
 
     void Update () {
+        if (Input.GetKeyDown(KeyCode.Tab))
+            SelectEnemy();
         if (stop == false)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -94,8 +96,8 @@ public class Playercontroller : MonoBehaviour {
              
                 Attack2();
             }
-            if (Input.GetKeyDown(KeyCode.Tab))
-                SelectEnemy();
+            
+                
 
         }
 
@@ -120,10 +122,10 @@ public class Playercontroller : MonoBehaviour {
     }
     void Attack()
     {
-        stop = true; 
+       // stop = true; 
         animator.SetBool("Attack", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 2)
+        if (targetedEnemy != null) 
         {
             targetedEnemy.TakeDamage(20);
         }
@@ -138,7 +140,7 @@ public class Playercontroller : MonoBehaviour {
         stop = true;
         animator.SetBool("Attack2", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 2)
+        if (targetedEnemy != null )
         {
             targetedEnemy.TakeDamage(20);
         }
@@ -159,7 +161,7 @@ public class Playercontroller : MonoBehaviour {
         
     }
 
-    private void SelectEnemy()
+    public void SelectEnemy()
     {
         targetedEnemy = targetRange.GetNextEnemy();
         if (targetedEnemy != null)
@@ -198,7 +200,7 @@ public class Playercontroller : MonoBehaviour {
 
         UpdateHealthUI();
     }
-    
-    
+
+  
 
 }
