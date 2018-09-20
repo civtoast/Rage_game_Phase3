@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114295432611788630}
   - component: {fileID: 65177935797075120}
   - component: {fileID: 54159774356343722}
+  - component: {fileID: 65406704688283178}
   m_Layer: 0
   m_Name: Floting_Disc
   m_TagString: Untagged
@@ -112,6 +113,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 0.38482657, z: 2}
+  m_Center: {x: 0, y: -0.0022749156, z: 0}
+--- !u!65 &65406704688283178
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894052620264276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: -0.0022749156, z: 0}
 --- !u!114 &114295432611788630
 MonoBehaviour:
