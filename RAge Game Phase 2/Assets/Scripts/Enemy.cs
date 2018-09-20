@@ -82,6 +82,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (state==EnemyState.Dead)
+        {
+            Destroy(this.gameObject);
+        }
         animator.SetFloat("Walk", agent.velocity.magnitude);
          agent.SetDestination(player.transform.position);
         if (state == EnemyState.Chase && timeToNextAttack < 0&&dmghit==true)

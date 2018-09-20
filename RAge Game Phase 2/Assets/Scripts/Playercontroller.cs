@@ -87,13 +87,10 @@ public class Playercontroller : MonoBehaviour {
             animator.SetFloat("Forward", animationSpeedPercent, speedsmoothtime, Time.deltaTime);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                
-
                 Attack();
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-             
+            {            
                 Attack2();
             }
             
@@ -123,9 +120,9 @@ public class Playercontroller : MonoBehaviour {
     void Attack()
     {
        // stop = true; 
-        animator.SetBool("Attack", true);
-        StartCoroutine(Wait());
-        if (targetedEnemy != null) 
+        //animator.SetBool("Attack", true);
+       // StartCoroutine(Wait());
+        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20) 
         {
             targetedEnemy.TakeDamage(20);
         }
@@ -201,6 +198,7 @@ public class Playercontroller : MonoBehaviour {
         UpdateHealthUI();
     }
 
-  
 
+    
+    
 }
