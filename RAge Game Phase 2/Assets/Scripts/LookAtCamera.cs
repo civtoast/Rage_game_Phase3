@@ -8,11 +8,12 @@ public class LookAtCamera : MonoBehaviour {
 	//its an easy way to create the effect of billboards always oriented towards the camera.
 	//We use it to have the enemies health bar always face the player.
 	
-	public Camera cam;
+	public GameObject  cam;
 
 	private void Start () {
-		
-	}
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
+
+    }
 
 	public void LateUpdate () {
 		transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);

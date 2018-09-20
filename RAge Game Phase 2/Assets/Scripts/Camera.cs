@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour {
    public Camera cam;
-	// Use this for initialization
-	void Start () {
+    internal static Camera main;
+
+    // Use this for initialization
+    void Start () {
        // cam = Camera.main;
 
     }

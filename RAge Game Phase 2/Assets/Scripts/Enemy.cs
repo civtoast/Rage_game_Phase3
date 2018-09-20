@@ -30,10 +30,10 @@ public class Enemy : MonoBehaviour
 
     [Space]
     [Header("UI elements")]
-    public Text enemyNameText;
+    //public Text enemyNameText;
     public Text healthText;
     public Slider healthBar;
-    public Renderer mesh;
+    private Playercontroller play;
     
     
 
@@ -45,10 +45,10 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         
         state = EnemyState.Chase;
-        enemyNameText.text = enemyName;
+        //enemyNameText.text = enemyName;
         currentHealth = maxHealth;
         UpdateHealthUI();
-
+        play = FindObjectOfType<Playercontroller>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
             agent.SetDestination(player.transform.position);
              
-            //player.TakeDamage(10);
+            play.TakeDamage(10);
             
         }
         timeToNextAttack -= Time.deltaTime;
@@ -114,10 +114,8 @@ public class Enemy : MonoBehaviour
             //wpSolver.SetState(PatrolState.Dead);
             state = EnemyState.Dead;
 
-            Color color = mesh.material.color;
-            color.a = 0;
-            mesh.material.color = color;
-
+            
+           
         }
 
         UpdateHealthUI();
