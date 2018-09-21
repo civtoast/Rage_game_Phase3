@@ -11,11 +11,20 @@ public class HealthController : MonoBehaviour {
 	[Header("UI elements")]
 	public Text enemyNameText;
 	public Text healthText;
+    public Text score;
 	public Slider healthBar;
     private Playercontroller player;
-	
+    public int scorenum;
+    private void Start()
+    {
+      
+    }
+    private void LateUpdate()
+    {
+        score.text = "score" + scorenum;
+    }
+    private void FixedUpdate () {
 
-	private void FixedUpdate () {
 		if (player.targetedEnemy == null) 
 		{
 			enemyNameText.text = "Select Enemy";

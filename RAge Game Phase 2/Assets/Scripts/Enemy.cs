@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Enemycontoller enemy;
     private bool dmghit;
+    public HealthController score;
     [Space]
     [Header("Enemy Stats")]
     public float maxHealth = 100;
@@ -35,8 +36,8 @@ public class Enemy : MonoBehaviour
     public Text healthText;
     public Slider healthBar;
     private Playercontroller play;
-    
-    
+    public Enemycontoller enemycontr;
+
 
     // Use this for initialization
     void Start()
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         wpSolver = GetComponent<WaypointSolver>();
         player = GameObject.FindGameObjectWithTag("Player");
-        
+
         state = EnemyState.Chase;
         //enemyNameText.text = enemyName;
         currentHealth = maxHealth;
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-           
+
             state = EnemyState.Chase;
             animator.SetBool("Attack", true);
             wpSolver.StopPatrolling();
@@ -70,11 +71,11 @@ public class Enemy : MonoBehaviour
         {
             if (state == EnemyState.Chase)
             {
-                 //state = EnemyState.Patrol;
-                 //wpSolver.StartPatrolling();
+                //state = EnemyState.Patrol;
+                //wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
                 dmghit = false;
-                    
+
             }
         }
     }
@@ -82,19 +83,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (state==EnemyState.Dead)
+        if (state == EnemyState.Dead)
         {
+            enemycontr.enemycount -= 1;
+            score.scorenum += 1;
             Destroy(this.gameObject);
+           
         }
         animator.SetFloat("Walk", agent.velocity.magnitude);
-         agent.SetDestination(player.transform.position);
-        if (state == EnemyState.Chase && timeToNextAttack < 0&&dmghit==true)
+        agent.SetDestination(player.transform.position);
+        if (state == EnemyState.Chase && timeToNextAttack < 0 && dmghit == true)
         {
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
             agent.SetDestination(player.transform.position);
 
             play.TakeDamage(10);
-            
+
         }
         timeToNextAttack -= Time.deltaTime;
     }
@@ -124,8 +128,8 @@ public class Enemy : MonoBehaviour
             //wpSolver.SetState(PatrolState.Dead);
             state = EnemyState.Dead;
 
-            
-           
+
+
         }
 
         UpdateHealthUI();
@@ -136,6 +140,6 @@ public class Enemy : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
-
+         
 
 }

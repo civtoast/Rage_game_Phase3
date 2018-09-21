@@ -21,6 +21,9 @@ public class Playercontroller : MonoBehaviour {
     public float jumpspeed = 0.5f;
     CharacterController controler;
     public bool stop;
+    public Rigidbody blast;
+    public Rigidbody particalblast;
+    public GameObject blast2;
     [Space]
     [Header("Attacking varables")]
     public Enemy targetedEnemy = null;
@@ -34,7 +37,7 @@ public class Playercontroller : MonoBehaviour {
     [Header("UI elements")]
     public Text healthText;
     public Slider healthBar;
-
+    public Canvas can;
     void Start () {
         animator = GetComponent<Animator>();
         controler = GetComponent<CharacterController> () ;
@@ -119,9 +122,9 @@ public class Playercontroller : MonoBehaviour {
     }
     void Attack()
     {
-       // stop = true; 
-        //animator.SetBool("Attack", true);
-       // StartCoroutine(Wait());
+        stop = true; 
+        animator.SetBool("Attack", true);
+        StartCoroutine(Wait());
         if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20) 
         {
             targetedEnemy.TakeDamage(20);
@@ -150,9 +153,10 @@ public class Playercontroller : MonoBehaviour {
 
     private IEnumerator Wait()
     {    
-        yield return new WaitForSeconds(1.5f/2);
+        yield return new WaitForSeconds(2);
+        
+        animator.SetBool("Attack2", false);   
         animator.SetBool("Attack", false);
-        animator.SetBool("Attack2", false);       
         stop = false;
      
         
@@ -164,7 +168,9 @@ public class Playercontroller : MonoBehaviour {
         if (targetedEnemy != null)
         {
             trackObject.gameObject.SetActive(true);
-            trackObject.target = targetedEnemy.transform;
+            trackObject.target = targetedEnemy.transform ;
+            
+           
         }
         else
         {
@@ -189,7 +195,7 @@ public class Playercontroller : MonoBehaviour {
         {
             currentHealth = 0;
            
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            
 
             print("You're DEAD!");
 
@@ -198,7 +204,15 @@ public class Playercontroller : MonoBehaviour {
         UpdateHealthUI();
     }
 
+    public void Blast1()
+    {
+       
 
-    
-    
+      particalblast  = Instantiate(blast,transform.position,transform.rotation);
+      
+        particalblast.AddForce(transform.forward*1000);
+          
+    }
+
+
 }

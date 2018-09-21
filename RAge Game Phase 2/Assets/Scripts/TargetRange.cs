@@ -55,7 +55,8 @@ public class TargetRange : MonoBehaviour {
 			if (targetableEnemies.Contains(other.GetComponent<Enemy>()))
 			{
 				targetableEnemies.Remove(other.GetComponent<Enemy>());
-			}
+                
+            }
 		}
 	}
 
