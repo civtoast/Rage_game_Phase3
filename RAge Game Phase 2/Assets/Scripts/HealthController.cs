@@ -11,7 +11,7 @@ public class HealthController : MonoBehaviour {
 	[Header("UI elements")]
 	public Text enemyNameText;
 	public Text healthText;
-    public Text score;
+    
 	public Slider healthBar;
     private Playercontroller player;
     public int scorenum;
@@ -21,7 +21,7 @@ public class HealthController : MonoBehaviour {
     }
     private void LateUpdate()
     {
-        score.text = "score" + scorenum;
+        
     }
     private void FixedUpdate () {
 

@@ -142,7 +142,7 @@ public class Playercontroller : MonoBehaviour {
         StartCoroutine(Wait());
         if (targetedEnemy != null )
         {
-            targetedEnemy.TakeDamage(20);
+            targetedEnemy.TakeDamage(100);
         }
         else
         {

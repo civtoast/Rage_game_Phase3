@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Enemycontoller enemy;
     private bool dmghit;
-    public HealthController score;
+    
     [Space]
     [Header("Enemy Stats")]
     public float maxHealth = 100;
@@ -36,12 +36,14 @@ public class Enemy : MonoBehaviour
     public Text healthText;
     public Slider healthBar;
     private Playercontroller play;
-    public Enemycontoller enemycontr;
+    
 
 
     // Use this for initialization
     void Start()
     {
+        
+
         agent = GetComponent<NavMeshAgent>();
         wpSolver = GetComponent<WaypointSolver>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -85,8 +87,7 @@ public class Enemy : MonoBehaviour
     {
         if (state == EnemyState.Dead)
         {
-            enemycontr.enemycount -= 1;
-            score.scorenum += 1;
+            enemy.enemycount -= 1;
             Destroy(this.gameObject);
            
         }
