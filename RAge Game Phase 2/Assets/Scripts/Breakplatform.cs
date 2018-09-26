@@ -13,12 +13,12 @@ public class Breakplatform : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-           
-            Destroy(this.gameObject);
-        }
-    }
+      void OnTriggerExit(Collider other)
+     {
+         if (other.CompareTag("Player"))
+         {
+           Destroy(this.gameObject); 
+         }        
+     }
+  
 }

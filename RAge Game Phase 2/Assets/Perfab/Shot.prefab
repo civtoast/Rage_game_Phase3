@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4527729907755700}
   - component: {fileID: 54710548206272676}
   - component: {fileID: 65414259075775794}
+  - component: {fileID: 114795513778296746}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Shot
@@ -99,6 +100,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.9, y: 4.73, z: 2.1}
+--- !u!114 &114795513778296746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723330039734626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f219feb0191785745bc7bcb60f13d313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198144189286710348
 ParticleSystem:
   m_ObjectHideFlags: 1
