@@ -87,11 +87,14 @@ public class Enemy : MonoBehaviour
     {
         if (state == EnemyState.Dead)
         {
-            enemy.enemycount -= 1;
+            // enemy.enemycount -= 1;
             Destroy(this.gameObject);
-           
+
         }
-        animator.SetFloat("Walk", agent.velocity.magnitude);
+        else
+        {
+            animator.SetFloat("Walk", agent.velocity.magnitude);
+        }
         agent.SetDestination(player.transform.position);
         if (state == EnemyState.Chase && timeToNextAttack < 0 && dmghit == true)
         {

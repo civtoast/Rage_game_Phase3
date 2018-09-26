@@ -5,28 +5,33 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour {
+    [Space]
+    [Header("Walk varables")]
     public float walkspeed = 2;
     public float runspeed = 6;
     public float turnsmoothtime = 0.2f;
-    public float jumpheight = 1;
+    
     float turnsmoothvelocity;
     public float speedsmoothtime = 0.1f;
     float speedsmoothvelocity;
     float currentSpeed;
     Animator animator;
+    [Space]
+    [Header("Jump varables")]
+    public float jumpheight = 1;
     public float gravity=-12;
     public Transform cameraT;
     float velocityY;
     float jumpTime= 0;
     public float jumpspeed = 0.5f;
     CharacterController controler;
-    public bool stop;
+    public bool stop;   
+    [Space]
+    [Header("Attacking varables")]
     public Rigidbody blast;
     public Rigidbody particalblast;
     public GameObject blast2;
-    [Space]
-    [Header("Attacking varables")]
-    public Enemy targetedEnemy = null;
+    public static Enemy targetedEnemy = null;
     public TargetRange targetRange;
     public TrackObject trackObject;
     [Space]
@@ -55,8 +60,6 @@ public class Playercontroller : MonoBehaviour {
         healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
     }
 
-    // Update is called once per frame
-
 
     void Update () {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -74,6 +77,8 @@ public class Playercontroller : MonoBehaviour {
             {
                 float targetrotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetrotation, ref turnsmoothvelocity, turnsmoothtime);
+
+                
             }
             bool running = Input.GetKey(KeyCode.LeftShift);
             float targetspeed = ((running) ? runspeed : walkspeed) * inputDir.magnitude;
@@ -105,9 +110,28 @@ public class Playercontroller : MonoBehaviour {
         {
             animator.SetBool("Jumptrue", false);
         }
+
+        
     }
-    
-    
+
+    public float targetRotationSpeed = 90;
+
+    private void LateUpdate()
+    {
+        if (targetedEnemy != null)
+        {
+            
+            if (controler.velocity.magnitude <= 0.05f)
+            {
+                var q = Quaternion.LookRotation(targetedEnemy.transform.position - transform.position);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, targetRotationSpeed * Time.deltaTime);
+            
+            }
+
+        }
+    }
+
+
     void Jump() {
         if (controler.isGrounded)
         {

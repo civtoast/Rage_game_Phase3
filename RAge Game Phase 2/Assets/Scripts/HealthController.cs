@@ -25,17 +25,17 @@ public class HealthController : MonoBehaviour {
     }
     private void FixedUpdate () {
 
-		if (player.targetedEnemy == null) 
+		if (Playercontroller.targetedEnemy == null) 
 		{
 			enemyNameText.text = "Select Enemy";
 			healthBar.gameObject.SetActive(false);
 
 		} else
 		{
-			if (enemyNameText.text != player.targetedEnemy.enemyName)
+			if (enemyNameText.text != Playercontroller.targetedEnemy.enemyName)
 			{
 				healthBar.gameObject.SetActive(true);
-				enemyNameText.text = player.targetedEnemy.enemyName;
+				enemyNameText.text = Playercontroller.targetedEnemy.enemyName;
 			}
 			UpdateHealthUI();
 	
@@ -44,7 +44,7 @@ public class HealthController : MonoBehaviour {
 
 	private void UpdateHealthUI()
 	{
-		healthBar.value = player.targetedEnemy.GetHealthPertcentage();
-		healthText.text = Mathf.Round(player.targetedEnemy.GetHealthPertcentage() * 100) + "%";
+		healthBar.value = Playercontroller.targetedEnemy.GetHealthPertcentage();
+		healthText.text = Mathf.Round(Playercontroller.targetedEnemy.GetHealthPertcentage() * 100) + "%";
 	}
 }
