@@ -39,17 +39,14 @@ public class Enemy : MonoBehaviour
     
 
 
-    // Use this for initialization
+    
     void Start()
     {
-        
-
         agent = GetComponent<NavMeshAgent>();
         wpSolver = GetComponent<WaypointSolver>();
         player = GameObject.FindGameObjectWithTag("Player");
 
         state = EnemyState.Chase;
-        //enemyNameText.text = enemyName;
         currentHealth = maxHealth;
         UpdateHealthUI();
         play = FindObjectOfType<Playercontroller>();
@@ -59,7 +56,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
             state = EnemyState.Chase;
             animator.SetBool("Attack", true);
             wpSolver.StopPatrolling();
@@ -82,7 +78,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (state == EnemyState.Dead)
@@ -112,17 +108,19 @@ public class Enemy : MonoBehaviour
         healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
     }
 
+
+
     public void TakeDamage(float attackDamage)
     {
-        print("wow");
-        //simple example of damage calculators and mitigations
+        
+       
         if (Random.value < 0.1f)
         {
             currentHealth -= attackDamage;
         }
         else
         {
-            //this would ultimately be determined by the minitgations
+            
             currentHealth -= attackDamage * 0.2f;
         }
 
@@ -131,13 +129,12 @@ public class Enemy : MonoBehaviour
             currentHealth = 0;
             //wpSolver.SetState(PatrolState.Dead);
             state = EnemyState.Dead;
-
-
-
         }
 
         UpdateHealthUI();
     }
+
+
 
     public float GetHealthPertcentage()
     {

@@ -5,17 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour {
+
+    
+
     [Space]
     [Header("Walk varables")]
     public float walkspeed = 2;
     public float runspeed = 6;
     public float turnsmoothtime = 0.2f;
-    
     float turnsmoothvelocity;
     public float speedsmoothtime = 0.1f;
     float speedsmoothvelocity;
     float currentSpeed;
     Animator animator;
+
     [Space]
     [Header("Jump varables")]
     public float jumpheight = 1;
@@ -25,7 +28,8 @@ public class Playercontroller : MonoBehaviour {
     float jumpTime= 0;
     public float jumpspeed = 0.5f;
     CharacterController controler;
-    public bool stop;   
+    public bool stop; 
+    
     [Space]
     [Header("Attacking varables")]
     public Rigidbody blast;
@@ -34,15 +38,18 @@ public class Playercontroller : MonoBehaviour {
     public static Enemy targetedEnemy = null;
     public TargetRange targetRange;
     public TrackObject trackObject;
+
     [Space]
     [Header("Player Stats")]
     public float maxHealth = 100;
     protected float currentHealth;
+
     [Space]
     [Header("UI elements")]
     public Text healthText;
     public Slider healthBar;
     public Canvas can;
+
     void Start () {
         animator = GetComponent<Animator>();
         controler = GetComponent<CharacterController> () ;
@@ -51,20 +58,15 @@ public class Playercontroller : MonoBehaviour {
         currentHealth = maxHealth;
         UpdateHealthUI();
 
-
+          
     }
 
-    private void UpdateHealthUI()
-    {
-        healthBar.value = currentHealth / maxHealth;
-        healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
-    }
 
 
     void Update () {
         if (Input.GetKeyDown(KeyCode.Tab))
             SelectEnemy();
-        if (stop == false)
+        if (!stop)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             Vector2 inputDir = input.normalized;
@@ -77,9 +79,9 @@ public class Playercontroller : MonoBehaviour {
             {
                 float targetrotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetrotation, ref turnsmoothvelocity, turnsmoothtime);
+            }  
 
-                
-            }
+            //Walking controles
             bool running = Input.GetKey(KeyCode.LeftShift);
             float targetspeed = ((running) ? runspeed : walkspeed) * inputDir.magnitude;
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetspeed, ref speedsmoothvelocity, speedsmoothtime);
@@ -87,6 +89,7 @@ public class Playercontroller : MonoBehaviour {
             Vector3 velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
             controler.Move(velocity * Time.deltaTime);
             currentSpeed = new Vector2(controler.velocity.x, controler.velocity.z).magnitude;
+
             if (controler.isGrounded)
             {
                 velocityY = 0;
@@ -139,11 +142,11 @@ public class Playercontroller : MonoBehaviour {
             float jumpvelocity = Mathf.Sqrt(-2 * gravity * jumpheight);
             velocityY = jumpvelocity;
             StartCoroutine(Wait());
-        }
-       
+        }     
         
        
     }
+
     void Attack()
     {
         stop = true; 
@@ -181,9 +184,7 @@ public class Playercontroller : MonoBehaviour {
         
         animator.SetBool("Attack2", false);   
         animator.SetBool("Attack", false);
-        stop = false;
-     
-        
+        stop = false;       
     }
 
     public void SelectEnemy()
@@ -192,9 +193,7 @@ public class Playercontroller : MonoBehaviour {
         if (targetedEnemy != null)
         {
             trackObject.gameObject.SetActive(true);
-            trackObject.target = targetedEnemy.transform ;
-            
-           
+            trackObject.target = targetedEnemy.transform ;        
         }
         else
         {
@@ -205,37 +204,37 @@ public class Playercontroller : MonoBehaviour {
     public void TakeDamage(float attackDamage)
     {
         print("Attacked");
-        //simple example of mitigations
+        
         if (UnityEngine.Random.value < 0.1f)
         {
             currentHealth -= attackDamage;
         }
         else
         {
-            currentHealth -= attackDamage * 0.2f;  //this would ultimately be determined by the minitgations
+            currentHealth -= attackDamage * 0.2f;  
         }
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-           
-            
+            currentHealth = 0; 
 
             print("You're DEAD!");
-
         }
 
         UpdateHealthUI();
     }
 
-    public void Blast1()
+    public void Blast1()// called by an event in the animation
     {
-       
-
       particalblast  = Instantiate(blast,transform.position,transform.rotation);
       
-        particalblast.AddForce(transform.forward*1000);
-          
+        particalblast.AddForce(transform.forward*1000);         
+    }
+
+    private void UpdateHealthUI()
+    {
+        healthBar.value = currentHealth / maxHealth;
+        healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
     }
 
 
