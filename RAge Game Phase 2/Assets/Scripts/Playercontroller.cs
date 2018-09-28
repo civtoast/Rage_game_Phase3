@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Playercontroller : MonoBehaviour {
+public class Playercontroller : MonoBehaviour
+{
 
-    
+
 
     [Space]
     [Header("Walk varables")]
@@ -22,14 +23,14 @@ public class Playercontroller : MonoBehaviour {
     [Space]
     [Header("Jump varables")]
     public float jumpheight = 1;
-    public float gravity=-12;
+    public float gravity = -12;
     public Transform cameraT;
     float velocityY;
-    float jumpTime= 0;
+    float jumpTime = 0;
     public float jumpspeed = 0.5f;
     CharacterController controler;
-    public bool stop; 
-    
+    public bool stop;
+
     [Space]
     [Header("Attacking varables")]
     public Rigidbody blast;
@@ -50,22 +51,38 @@ public class Playercontroller : MonoBehaviour {
     public Slider healthBar;
     public Canvas can;
 
-    void Start () {
+    protected Ray ray;
+    protected RaycastHit hit;
+    protected float distanceToGround;
+
+    void Start()
+    {
         animator = GetComponent<Animator>();
-        controler = GetComponent<CharacterController> () ;
+        controler = GetComponent<CharacterController>();
         stop = false;
         trackObject.gameObject.SetActive(false);
         currentHealth = maxHealth;
         UpdateHealthUI();
 
-          
+
     }
 
 
 
-    void Update () {
+    void Update()
+    {
+        ray = new Ray(transform.position, Vector3.down);
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
             SelectEnemy();
+        }
         if (!stop)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -79,7 +96,7 @@ public class Playercontroller : MonoBehaviour {
             {
                 float targetrotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetrotation, ref turnsmoothvelocity, turnsmoothtime);
-            }  
+            }
 
             //Walking controles
             bool running = Input.GetKey(KeyCode.LeftShift);
@@ -101,11 +118,11 @@ public class Playercontroller : MonoBehaviour {
                 Attack();
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1))
-            {            
+            {
                 Attack2();
             }
-            
-                
+
+
 
         }
 
@@ -114,7 +131,7 @@ public class Playercontroller : MonoBehaviour {
             animator.SetBool("Jumptrue", false);
         }
 
-        
+
     }
 
     public float targetRotationSpeed = 90;
@@ -123,36 +140,37 @@ public class Playercontroller : MonoBehaviour {
     {
         if (targetedEnemy != null)
         {
-            
+
             if (controler.velocity.magnitude <= 0.05f)
             {
                 var q = Quaternion.LookRotation(targetedEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, q, targetRotationSpeed * Time.deltaTime);
-            
+
             }
 
         }
     }
 
 
-    void Jump() {
+    void Jump()
+    {
         if (controler.isGrounded)
         {
             animator.SetBool("Jumptrue", true);
             float jumpvelocity = Mathf.Sqrt(-2 * gravity * jumpheight);
             velocityY = jumpvelocity;
             StartCoroutine(Wait());
-        }     
-        
-       
+        }
+
+
     }
 
     void Attack()
     {
-        stop = true; 
+        stop = true;
         animator.SetBool("Attack", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20) 
+        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20)
         {
             targetedEnemy.TakeDamage(20);
         }
@@ -167,7 +185,7 @@ public class Playercontroller : MonoBehaviour {
         stop = true;
         animator.SetBool("Attack2", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null )
+        if (targetedEnemy != null)
         {
             targetedEnemy.TakeDamage(100);
         }
@@ -179,12 +197,12 @@ public class Playercontroller : MonoBehaviour {
     }
 
     private IEnumerator Wait()
-    {    
+    {
         yield return new WaitForSeconds(2);
-        
-        animator.SetBool("Attack2", false);   
+
+        animator.SetBool("Attack2", false);
         animator.SetBool("Attack", false);
-        stop = false;       
+        stop = false;
     }
 
     public void SelectEnemy()
@@ -193,7 +211,7 @@ public class Playercontroller : MonoBehaviour {
         if (targetedEnemy != null)
         {
             trackObject.gameObject.SetActive(true);
-            trackObject.target = targetedEnemy.transform ;        
+            trackObject.target = targetedEnemy.transform;
         }
         else
         {
@@ -204,19 +222,19 @@ public class Playercontroller : MonoBehaviour {
     public void TakeDamage(float attackDamage)
     {
         print("Attacked");
-        
+
         if (UnityEngine.Random.value < 0.1f)
         {
             currentHealth -= attackDamage;
         }
         else
         {
-            currentHealth -= attackDamage * 0.2f;  
+            currentHealth -= attackDamage * 0.2f;
         }
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0; 
+            currentHealth = 0;
 
             print("You're DEAD!");
         }
@@ -226,9 +244,9 @@ public class Playercontroller : MonoBehaviour {
 
     public void Blast1()// called by an event in the animation
     {
-      particalblast  = Instantiate(blast,transform.position,transform.rotation);
-      
-        particalblast.AddForce(transform.forward*1000);         
+        particalblast = Instantiate(blast, transform.position, transform.rotation);
+
+        particalblast.AddForce(transform.forward * 1000);
     }
 
     private void UpdateHealthUI()
