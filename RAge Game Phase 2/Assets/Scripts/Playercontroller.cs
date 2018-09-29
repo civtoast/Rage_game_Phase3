@@ -4,43 +4,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Playercontroller : MonoBehaviour {
+public class Playercontroller : MonoBehaviour
+{
+
+
+
+    [Space]
+    [Header("Walk varables")]
     public float walkspeed = 2;
     public float runspeed = 6;
     public float turnsmoothtime = 0.2f;
-    public float jumpheight = 1;
     float turnsmoothvelocity;
     public float speedsmoothtime = 0.1f;
     float speedsmoothvelocity;
     float currentSpeed;
     Animator animator;
-    public float gravity=-12;
+
+    [Space]
+    [Header("Jump varables")]
+    public float jumpheight = 1;
+    public float gravity = -12;
     public Transform cameraT;
     float velocityY;
-    float jumpTime= 0;
+    float jumpTime = 0;
     public float jumpspeed = 0.5f;
     CharacterController controler;
     public bool stop;
+
+    [Space]
+    [Header("Attacking varables")]
     public Rigidbody blast;
     public Rigidbody particalblast;
     public GameObject blast2;
-    [Space]
-    [Header("Attacking varables")]
-    public Enemy targetedEnemy = null;
+    public static Enemy targetedEnemy = null;
     public TargetRange targetRange;
     public TrackObject trackObject;
+
     [Space]
     [Header("Player Stats")]
     public float maxHealth = 100;
     protected float currentHealth;
+
     [Space]
     [Header("UI elements")]
     public Text healthText;
     public Slider healthBar;
     public Canvas can;
-    void Start () {
+
+    protected Ray ray;
+    protected RaycastHit hit;
+    protected float distanceToGround;
+
+    void Start()
+    {
         animator = GetComponent<Animator>();
-        controler = GetComponent<CharacterController> () ;
+        controler = GetComponent<CharacterController>();
         stop = false;
         trackObject.gameObject.SetActive(false);
         currentHealth = maxHealth;
@@ -49,19 +67,23 @@ public class Playercontroller : MonoBehaviour {
 
     }
 
-    private void UpdateHealthUI()
+
+
+    void Update()
     {
-        healthBar.value = currentHealth / maxHealth;
-        healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
-    }
+        ray = new Ray(transform.position, Vector3.down);
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
+        }
 
-    // Update is called once per frame
-
-
-    void Update () {
         if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
             SelectEnemy();
-        if (stop == false)
+        }
+        if (!stop)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             Vector2 inputDir = input.normalized;
@@ -75,6 +97,8 @@ public class Playercontroller : MonoBehaviour {
                 float targetrotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetrotation, ref turnsmoothvelocity, turnsmoothtime);
             }
+
+            //Walking controles
             bool running = Input.GetKey(KeyCode.LeftShift);
             float targetspeed = ((running) ? runspeed : walkspeed) * inputDir.magnitude;
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetspeed, ref speedsmoothvelocity, speedsmoothtime);
@@ -82,6 +106,7 @@ public class Playercontroller : MonoBehaviour {
             Vector3 velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
             controler.Move(velocity * Time.deltaTime);
             currentSpeed = new Vector2(controler.velocity.x, controler.velocity.z).magnitude;
+
             if (controler.isGrounded)
             {
                 velocityY = 0;
@@ -93,11 +118,11 @@ public class Playercontroller : MonoBehaviour {
                 Attack();
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1))
-            {            
+            {
                 Attack2();
             }
-            
-                
+
+
 
         }
 
@@ -105,10 +130,30 @@ public class Playercontroller : MonoBehaviour {
         {
             animator.SetBool("Jumptrue", false);
         }
+
+
     }
-    
-    
-    void Jump() {
+
+    public float targetRotationSpeed = 90;
+
+    private void LateUpdate()
+    {
+        if (targetedEnemy != null)
+        {
+
+            if (controler.velocity.magnitude <= 0.05f)
+            {
+                var q = Quaternion.LookRotation(targetedEnemy.transform.position - transform.position);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, targetRotationSpeed * Time.deltaTime);
+
+            }
+
+        }
+    }
+
+
+    void Jump()
+    {
         if (controler.isGrounded)
         {
             animator.SetBool("Jumptrue", true);
@@ -116,16 +161,16 @@ public class Playercontroller : MonoBehaviour {
             velocityY = jumpvelocity;
             StartCoroutine(Wait());
         }
-       
-        
-       
+
+
     }
+
     void Attack()
     {
-        stop = true; 
+        stop = true;
         animator.SetBool("Attack", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20) 
+        if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20)
         {
             targetedEnemy.TakeDamage(20);
         }
@@ -140,7 +185,7 @@ public class Playercontroller : MonoBehaviour {
         stop = true;
         animator.SetBool("Attack2", true);
         StartCoroutine(Wait());
-        if (targetedEnemy != null )
+        if (targetedEnemy != null)
         {
             targetedEnemy.TakeDamage(100);
         }
@@ -152,14 +197,12 @@ public class Playercontroller : MonoBehaviour {
     }
 
     private IEnumerator Wait()
-    {    
+    {
         yield return new WaitForSeconds(2);
-        
-        animator.SetBool("Attack2", false);   
+
+        animator.SetBool("Attack2", false);
         animator.SetBool("Attack", false);
         stop = false;
-     
-        
     }
 
     public void SelectEnemy()
@@ -168,9 +211,7 @@ public class Playercontroller : MonoBehaviour {
         if (targetedEnemy != null)
         {
             trackObject.gameObject.SetActive(true);
-            trackObject.target = targetedEnemy.transform ;
-            
-           
+            trackObject.target = targetedEnemy.transform;
         }
         else
         {
@@ -181,37 +222,37 @@ public class Playercontroller : MonoBehaviour {
     public void TakeDamage(float attackDamage)
     {
         print("Attacked");
-        //simple example of mitigations
+
         if (UnityEngine.Random.value < 0.1f)
         {
             currentHealth -= attackDamage;
         }
         else
         {
-            currentHealth -= attackDamage * 0.2f;  //this would ultimately be determined by the minitgations
+            currentHealth -= attackDamage * 0.2f;
         }
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-           
-            
 
             print("You're DEAD!");
-
         }
 
         UpdateHealthUI();
     }
 
-    public void Blast1()
+    public void Blast1()// called by an event in the animation
     {
-       
+        particalblast = Instantiate(blast, transform.position, transform.rotation);
 
-      particalblast  = Instantiate(blast,transform.position,transform.rotation);
-      
-        particalblast.AddForce(transform.forward*1000);
-          
+        particalblast.AddForce(transform.forward * 1000);
+    }
+
+    private void UpdateHealthUI()
+    {
+        healthBar.value = currentHealth / maxHealth;
+        healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
     }
 
 

@@ -16,7 +16,7 @@ public class Enemycontoller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enemycount == 10 )
+        if (enemycount == 1 )
         {
             shouldspawn = false;
             times += 1;

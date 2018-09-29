@@ -51,6 +51,7 @@ public class Cameracontroller : MonoBehaviour {
                 pitch -= Input.GetAxis("Mouse Y") * mousesensitivity;
                 pitch = Mathf.Clamp(pitch, pitchminmax.x, pitchminmax.y);
                 curentrotation = Vector3.Lerp(curentrotation, new Vector3(pitch, yaw), rotationsmoothtime * Time.deltaTime);
+                
             }
             else
             {
@@ -60,9 +61,12 @@ public class Cameracontroller : MonoBehaviour {
                 curentrotation = Vector3.Lerp(curentrotation, new Vector3(pitch, yaw), rotationsmoothtime * Time.deltaTime);
             }
 
+            
+
         }
         //curentrotation = Vector3.SmoothDamp(curentrotation, new Vector3(pitch, yaw), ref rotationsmoothvelocity, );
         transform.eulerAngles = curentrotation;
+
         if (camstate==CameraState.targeted)
         {
         
