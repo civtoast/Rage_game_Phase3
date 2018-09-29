@@ -71,7 +71,12 @@ public class Playercontroller : MonoBehaviour
 
     void Update()
     {
-        
+        ray = new Ray(transform.position, Vector3.down);
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
+        }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
