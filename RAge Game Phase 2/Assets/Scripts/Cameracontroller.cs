@@ -42,6 +42,16 @@ public class Cameracontroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
+        if(lockcursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        if(!lockcursor)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         Collisiondetect( target.position - transform.forward * targetdist);
         if (camstate ==CameraState.free)
         {

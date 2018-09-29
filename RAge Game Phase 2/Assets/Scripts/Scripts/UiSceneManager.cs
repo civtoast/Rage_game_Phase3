@@ -7,21 +7,27 @@ using UnityEngine.SceneManagement;
 public class UiSceneManager : MonoBehaviour
 {
 
-    public Button buttonToChangeUiScene;
+    public Button changeUiScene;
+    //public Canvas changeCanvas;
 
     public string sceneName;
 
     // Use this for initialization
     void Start()
     {
-        buttonToChangeUiScene.onClick.AddListener(ChangeSceneToSettings);
+        changeUiScene.onClick.AddListener(ChangeScene);
     }
 
-    void ChangeSceneToSettings()
+    void ChangeScene()
     {
         print("Load new UI scene ");
         SceneManager.LoadScene(sceneName);
     }
+
+    //public void ChangeScene()
+   //{
+  //      changeCanvas.enabled = true;
+    //}
 }
 
   
