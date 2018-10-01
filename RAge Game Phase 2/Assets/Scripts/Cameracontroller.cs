@@ -61,7 +61,21 @@ public class Cameracontroller : MonoBehaviour {
                 curentrotation = Vector3.Lerp(curentrotation, new Vector3(pitch, yaw), rotationsmoothtime * Time.deltaTime);
             }
 
-            
+            if (!pitchlock)
+            {
+                yaw += Input.GetAxisRaw("Horizontal2") * mousesensitivity;
+                pitch -= Input.GetAxisRaw("Vertical2") * mousesensitivity;
+                pitch = Mathf.Clamp(pitch, pitchminmax.x, pitchminmax.y);
+                curentrotation = Vector3.Lerp(curentrotation, new Vector3(pitch, yaw), rotationsmoothtime * Time.deltaTime);
+
+            }
+            else
+            {
+                yaw += Input.GetAxis("Horizontal2") * mousesensitivity;
+                pitch = pitchminmax.y;
+
+                curentrotation = Vector3.Lerp(curentrotation, new Vector3(pitch, yaw), rotationsmoothtime * Time.deltaTime);
+            }
 
         }
         //curentrotation = Vector3.SmoothDamp(curentrotation, new Vector3(pitch, yaw), ref rotationsmoothvelocity, );

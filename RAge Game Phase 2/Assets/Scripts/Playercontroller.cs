@@ -88,7 +88,7 @@ public class Playercontroller : MonoBehaviour
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             Vector2 inputDir = input.normalized;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
                 Jump();
             }
@@ -99,7 +99,7 @@ public class Playercontroller : MonoBehaviour
             }
 
             //Walking controles
-            bool running = Input.GetKey(KeyCode.LeftShift);
+            bool running = Input.GetButton("Sprint");
             float targetspeed = ((running) ? runspeed : walkspeed) * inputDir.magnitude;
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetspeed, ref speedsmoothvelocity, speedsmoothtime);
             velocityY += Time.deltaTime * gravity;
@@ -113,11 +113,11 @@ public class Playercontroller : MonoBehaviour
             }
             float animationSpeedPercent = ((running) ? currentSpeed / runspeed : currentSpeed / walkspeed * .5f);
             animator.SetFloat("Forward", animationSpeedPercent, speedsmoothtime, Time.deltaTime);
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetButtonDown("Fire1"))
             {
                 Attack();
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Attack2();
             }
