@@ -78,7 +78,7 @@ public class Playercontroller : MonoBehaviour
             Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetButtonDown("Target"))
         {
 
             SelectEnemy();
