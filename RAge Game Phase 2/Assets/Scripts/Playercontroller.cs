@@ -39,7 +39,7 @@ public class Playercontroller : MonoBehaviour
     public static Enemy targetedEnemy = null;
     public TargetRange targetRange;
     public TrackObject trackObject;
-
+    public GameObject spike;
     [Space]
     [Header("Player Stats")]
     public float maxHealth = 100;
@@ -75,7 +75,7 @@ public class Playercontroller : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
+            //Debug.LogFormat("Distance: {0}\nObject: {1}", hit.distance, hit.collider.name);
         }
 
         if (Input.GetButtonDown("Target"))
@@ -116,6 +116,7 @@ public class Playercontroller : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 Attack();
+                animator.SetFloat("Forward", 0);
             }
             else if (Input.GetButtonDown("Fire2"))
             {
@@ -164,12 +165,16 @@ public class Playercontroller : MonoBehaviour
 
 
     }
+    void Land()
+    {
+     animator.SetBool("Jumptrue", true);
+
+    }
 
     void Attack()
     {
         stop = true;
         animator.SetBool("Attack", true);
-        StartCoroutine(Wait());
         if (targetedEnemy != null && Vector3.Distance(transform.position, targetedEnemy.transform.position) < 20)
         {
             targetedEnemy.TakeDamage(20);
@@ -184,7 +189,6 @@ public class Playercontroller : MonoBehaviour
     {
         stop = true;
         animator.SetBool("Attack2", true);
-        StartCoroutine(Wait());
         if (targetedEnemy != null)
         {
             targetedEnemy.TakeDamage(100);
@@ -218,6 +222,10 @@ public class Playercontroller : MonoBehaviour
             trackObject.gameObject.SetActive(false);
         }
     }
+    public void Spawn()
+    {
+            
+    }
 
     public void TakeDamage(float attackDamage)
     {
@@ -247,6 +255,13 @@ public class Playercontroller : MonoBehaviour
         particalblast = Instantiate(blast, transform.position, transform.rotation);
 
         particalblast.AddForce(transform.forward * 1000);
+    }
+    public void Done()
+    {
+        animator.SetBool("Attack", false);
+        animator.SetBool("Attack2", false);
+       
+        stop = false;
     }
 
     private void UpdateHealthUI()
