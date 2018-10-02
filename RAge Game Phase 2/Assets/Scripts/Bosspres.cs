@@ -6,16 +6,18 @@ using UnityEngine;
 public class Bosspres : MonoBehaviour {
 
     public Animator animator;
-
-	// Use this for initialization
-	void Start () {
+    public GameObject[] spawnpoints;
+        
+    // Use this for initialization
+    void Start () {
         animator.SetFloat("Blend", 0);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+        Wait();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -32,5 +34,20 @@ public class Bosspres : MonoBehaviour {
         {
             animator.SetFloat("Blend", 0);
         }
+    }
+
+
+    private void Changeposition()
+    {
+        Wait();
+
+
+    }
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(Random.Range(20f,25f));
+
+        Changeposition();
+
     }
 }
