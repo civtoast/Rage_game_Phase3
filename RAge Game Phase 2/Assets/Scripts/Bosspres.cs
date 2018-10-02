@@ -39,9 +39,10 @@ public class Bosspres : MonoBehaviour {
 
     private void Changeposition()
     {
-        
 
-
+        //animator.SetBool("Shrink", true);
+        // transform.position = spawnpoints[random.range(0,4)]
+        //
     }
     private IEnumerator Wait()
     {
