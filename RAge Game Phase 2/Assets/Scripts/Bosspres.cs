@@ -39,7 +39,7 @@ public class Bosspres : MonoBehaviour {
 
     private void Changeposition()
     {
-        Wait();
+        
 
 
     }
