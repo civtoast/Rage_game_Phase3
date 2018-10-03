@@ -14,7 +14,7 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
-       // newGame.onClick.AddListener();
+       //  newGame.onClick.AddListener();
     }
 
 

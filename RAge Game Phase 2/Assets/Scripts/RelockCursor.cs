@@ -26,11 +26,18 @@ public class RelockCursor : MonoBehaviour {
     {
         if (isLocked)
         {
-            GetComponent<Pause>().UnpauseGame();
+            LockedCursor();
             Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log(" Game should still be running");
         }
     }
+
+    public void LockedCursor()
+    {
+
+    }
+
+
 }
