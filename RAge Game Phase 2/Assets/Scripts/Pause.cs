@@ -10,8 +10,12 @@ public class Pause : MonoBehaviour
     // public Scene playingScene;
      public Canvas canvas;
     public static bool pause = false;
+    //public Button newGame;
 
-
+    private void Start()
+    {
+       // newGame.onClick.AddListener();
+    }
 
 
     // Update is called once per frame
@@ -36,6 +40,7 @@ public class Pause : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Debug.Log(" Game scene should be paused");
             }
+        }
 
 
 
@@ -51,7 +56,7 @@ public class Pause : MonoBehaviour
 
             }*/
 
-        }
+        
     }
 
         public void PauseGame()
