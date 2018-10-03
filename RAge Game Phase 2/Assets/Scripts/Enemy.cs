@@ -57,11 +57,12 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             state = EnemyState.Chase;
-            animator.SetBool("Attack", true);
+             animator.SetBool("Attack", true);
              wpSolver.StopPatrolling();
-            wpSolver.StopPatrolling();
-            dmghit = true;
+             wpSolver.StopPatrolling();
+             dmghit = true;
         }
     }
 
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
         {
             if (state == EnemyState.Chase)
             {
+                
                 state = EnemyState.Patrol;
                 wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
@@ -83,6 +85,7 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
+        
         if (state == EnemyState.Dead)
         {
             //enemy.enemycount -= 1;
@@ -105,6 +108,7 @@ public class Enemy : MonoBehaviour
         }
         if (state == EnemyState.Chase && timeToNextAttack < 0 && dmghit == true)
         {
+            print("wow");
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
             agent.SetDestination(player.transform.position);
 

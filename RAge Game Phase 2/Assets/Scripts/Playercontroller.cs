@@ -43,7 +43,7 @@ public class Playercontroller : MonoBehaviour
     [Space]
     [Header("Player Stats")]
     public float maxHealth = 100;
-    protected float currentHealth;
+    public float currentHealth;
 
     [Space]
     [Header("UI elements")]
