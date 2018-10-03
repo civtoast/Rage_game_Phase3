@@ -11,12 +11,13 @@ public class Bosspres : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator.SetFloat("Blend", 0);
+        StartCoroutine(Wait());
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        StartCoroutine(Wait());
+        //StartCoroutine(Wait());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,8 +40,8 @@ public class Bosspres : MonoBehaviour {
 
     private void Shrink()
     {
-        //print("shh");
-        //animator.SetBool("Shrink", true);
+        print("shh");
+        animator.SetBool("Shrink", true);
         
         //transform.position = spawnpoints[Random.Range(0, 4)].position;
         
@@ -51,5 +52,12 @@ public class Bosspres : MonoBehaviour {
 
         Shrink();
 
+    }
+    public void Grow()
+    {
+        transform.position = spawnpoints[Random.Range(0, 3)].position;
+        animator.SetBool("Shrink", false);
+        animator.SetBool("Grow", true);
+        StartCoroutine(Wait());
     }
 }

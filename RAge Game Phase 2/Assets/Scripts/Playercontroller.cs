@@ -113,12 +113,12 @@ public class Playercontroller : MonoBehaviour
             }
             float animationSpeedPercent = ((running) ? currentSpeed / runspeed : currentSpeed / walkspeed * .5f);
             animator.SetFloat("Forward", animationSpeedPercent, speedsmoothtime, Time.deltaTime);
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && controler.isGrounded) 
             {
                 Attack();
                 animator.SetFloat("Forward", 0);
             }
-            else if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("Fire2") && controler.isGrounded)
             {
                 Attack2();
             }

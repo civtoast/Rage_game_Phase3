@@ -96,8 +96,9 @@ public class Enemy : MonoBehaviour
             }
             
             agent.enabled = false;
-            Destroy(this.gameObject);
+            animator.SetBool("Dead", true);
             
+
         }
         else 
         {
@@ -157,6 +158,10 @@ public class Enemy : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
-         
+    public void Dead()
+    {
+        print("dead");
+        Destroy(this.gameObject);
+    }      
 
 }
