@@ -6,28 +6,29 @@ using UnityEngine.UI;
 public class UIManager : UICore
 {
 
-	public static UIManager Instance;
+    public static UIManager Instance;
 
     public Button changePanel;
 
-	public Transform canvas;
+    public Transform canvas;
     public GameObject pauseMenuPrefab, audioPrefab;
 
-	private void Awake()
-	{
-		if (Instance == null)
-			Instance = this;
-	}
-
-    override
-
-   /* public void BringPauseMenu()
+    private void Awake()
     {
-        GameObject obj = Instantiate(pauseMenuPrefab, canvas);
-        obj.GetComponent<>();
-    }*/
+        if (Instance == null)
+            Instance = this;
+    }
 
-	/*public void ShowDialogue(string text)
+    
+    
+
+    /* public void BringPauseMenu()
+     {
+         GameObject obj = Instantiate(pauseMenuPrefab, canvas);
+         obj.GetComponent<>();
+     }*/
+
+    /*public void ShowDialogue(string text)
 	{
 		GameObject obj = Instantiate(pauseMenuPrefab, canvas);
 		obj.GetComponent<UIDialogue>().Init(text);
@@ -44,7 +45,5 @@ public class UIManager : UICore
         GameObject obj = Instantiate(audioPrefab, canvas);
         obj.GetComponent<UIAudio>().Init();
     }*/
-
-
 
 }
