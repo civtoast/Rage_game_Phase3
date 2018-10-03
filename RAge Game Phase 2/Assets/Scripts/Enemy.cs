@@ -58,11 +58,12 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-            state = EnemyState.Chase;
+             state = EnemyState.Chase;
              animator.SetBool("Attack", true);
              wpSolver.StopPatrolling();
              wpSolver.StopPatrolling();
              dmghit = true;
+            print(dmghit);
         }
     }
 
