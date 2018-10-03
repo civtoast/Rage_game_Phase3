@@ -11,19 +11,19 @@ public class PlayerDemo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			UIManager.Instance.ShowDialogue("Hello World!");
-		}
+		//if (Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	UIManager.Instance.ShowDialogue("Hello World!");
+		//}
 
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-            UIManager.Instance.ShowAudioPanel(); // ShowSettings();
-		}
+		//if (Input.GetKeyDown(KeyCode.Escape))
+		//{
+  //          UIManager.Instance.ShowAudioPanel(); // ShowSettings();
+		//}
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            UIManager.Instance.ShowAudioPanel();
-        }
+  //      if (Input.GetKeyDown(KeyCode.V))
+  //      {
+  //          UIManager.Instance.ShowAudioPanel();
+  //      }
 	}
 }
