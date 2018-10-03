@@ -48,7 +48,7 @@ public class Playercontroller : MonoBehaviour
     [Space]
     [Header("UI elements")]
     public Text healthText;
-    public Slider healthBar;
+    public Image healthBar;
     public Canvas can;
 
     protected Ray ray;
@@ -269,7 +269,7 @@ public class Playercontroller : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        healthBar.value = currentHealth / maxHealth;
+        healthBar.fillAmount = currentHealth / maxHealth;
         healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
     }
 
