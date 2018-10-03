@@ -45,11 +45,12 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         wpSolver = GetComponent<WaypointSolver>();
         player = GameObject.FindGameObjectWithTag("Player");
-
         state = EnemyState.Chase;
         currentHealth = maxHealth;
         UpdateHealthUI();
         play = FindObjectOfType<Playercontroller>();
+        //Enemycontoller
+        //enemy = GameObject.Find("Enemy count").GetComponent<Enemycontoller>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,15 +84,24 @@ public class Enemy : MonoBehaviour
     {
         if (state == EnemyState.Dead)
         {
-            // enemy.enemycount -= 1;
+            //enemy.enemycount -= 1;
+            if (Spawnmanager.enemywave.Contains(this))
+            {
+              Spawnmanager.enemywave.Remove(this);
+            }
+            
+            agent.enabled = false;
             Destroy(this.gameObject);
-
+            
         }
-        else
+        else 
         {
             animator.SetFloat("Walk", agent.velocity.magnitude);
         }
-        agent.SetDestination(player.transform.position);
+        if (state == EnemyState.Chase)
+        {
+         agent.SetDestination(player.transform.position);
+        }
         if (state == EnemyState.Chase && timeToNextAttack < 0 && dmghit == true)
         {
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);

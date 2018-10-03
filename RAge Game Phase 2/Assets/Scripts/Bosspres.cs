@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bosspres : MonoBehaviour {
 
     public Animator animator;
-    public GameObject[] spawnpoints;
+    public Transform[] spawnpoints;
         
     // Use this for initialization
     void Start () {
@@ -15,8 +15,8 @@ public class Bosspres : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        Wait();
+
+        StartCoroutine(Wait());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -37,18 +37,18 @@ public class Bosspres : MonoBehaviour {
     }
 
 
-    private void Changeposition()
+    private void Shrink()
     {
-
+        print("shh");
         //animator.SetBool("Shrink", true);
-        //transform.position = spawnpoints[Random.Range(0,4)]
-        //
+        //transform.position = spawnpoints[Random.Range(0, 4)].position;
+        
     }
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(Random.Range(20f,25f));
 
-        Changeposition();
+        Shrink();
 
     }
 }

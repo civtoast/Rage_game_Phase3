@@ -4,16 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Pause : MonoBehaviour {
+public class Pause : UICore {
 
     public Scene playingScene;
     public Canvas canvas;
     public static bool pause = false;
+    
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,13 +22,16 @@ public class Pause : MonoBehaviour {
             {
                 UnpauseGame();
                 Time.timeScale = 1;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Debug.Log(" Game should still be running");
             }
             else
             {
                 PauseGame();
                 Time.timeScale = 0;
-                //CursorLockMode.None;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 Debug.Log(" Game scene should be paused");
             }
         }

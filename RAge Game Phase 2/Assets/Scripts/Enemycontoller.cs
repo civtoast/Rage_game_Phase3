@@ -16,11 +16,10 @@ public class Enemycontoller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enemycount == 5 )
+        if (enemycount == 2 )
         {
             shouldspawn = false;
-            times += 1;
-            
+            times = 1; 
         }
         if (enemycount == 0)
         {
@@ -28,7 +27,7 @@ public class Enemycontoller : MonoBehaviour {
         }
         if (enemycount<enemiesscore)
         {
-            score.text = "score" + 1;
+            //score.text = "score" + 1;
             enemiesscore = enemycount;
         }
 	}

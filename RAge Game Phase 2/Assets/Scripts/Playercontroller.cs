@@ -19,7 +19,7 @@ public class Playercontroller : MonoBehaviour
     float speedsmoothvelocity;
     float currentSpeed;
     Animator animator;
-
+    
     [Space]
     [Header("Jump varables")]
     public float jumpheight = 1;
@@ -30,7 +30,7 @@ public class Playercontroller : MonoBehaviour
     public float jumpspeed = 0.5f;
     CharacterController controler;
     public bool stop;
-
+    
     [Space]
     [Header("Attacking varables")]
     public Rigidbody blast;
@@ -167,7 +167,7 @@ public class Playercontroller : MonoBehaviour
     }
     void Land()
     {
-     animator.SetBool("Jumptrue", true);
+     animator.SetBool("Jumptrue", false);
 
     }
 
@@ -224,7 +224,10 @@ public class Playercontroller : MonoBehaviour
     }
     public void Spawn()
     {
-            
+        if (targetedEnemy != null)
+        {
+            Instantiate(spike,targetedEnemy.transform.position,targetedEnemy.transform.rotation);
+        }
     }
 
     public void TakeDamage(float attackDamage)
@@ -268,6 +271,11 @@ public class Playercontroller : MonoBehaviour
     {
         healthBar.value = currentHealth / maxHealth;
         healthText.text = Mathf.Round(currentHealth / maxHealth * 100) + "%";
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Land();
     }
 
 
