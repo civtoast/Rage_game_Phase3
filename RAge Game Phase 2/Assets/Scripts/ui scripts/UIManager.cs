@@ -18,15 +18,20 @@ public class UIManager : UICore
         if (Instance == null)
             Instance = this;
     }
+    public override void Init()
+    {
+        base.Init();
+        changePanel.onClick.AddListener(Load);
+    }
 
-    
-    
 
-    /* public void BringPauseMenu()
+
+
+    public void BringPauseMenu()
      {
          GameObject obj = Instantiate(pauseMenuPrefab, canvas);
-         obj.GetComponent<>();
-     }*/
+        /// obj.GetComponent<>();
+     }
 
     /*public void ShowDialogue(string text)
 	{
@@ -45,5 +50,10 @@ public class UIManager : UICore
         GameObject obj = Instantiate(audioPrefab, canvas);
         obj.GetComponent<UIAudio>().Init();
     }*/
+
+    public void Load()
+    {
+        print("loading panel");
+    }  
 
 }
