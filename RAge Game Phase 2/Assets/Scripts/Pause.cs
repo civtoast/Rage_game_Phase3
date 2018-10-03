@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Pause : UICore {
+public class Pause : MonoBehaviour
+{
 
-    public Scene playingScene;
-    public Canvas canvas;
+    // public Scene playingScene;
+     public Canvas canvas;
     public static bool pause = false;
-    
 
-	
-	
-	// Update is called once per frame
-	void Update () {
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -34,20 +36,33 @@ public class Pause : UICore {
                 Cursor.lockState = CursorLockMode.None;
                 Debug.Log(" Game scene should be paused");
             }
+
+
+
+            /* if (Input.GetKeyDown(KeyCode.Space))
+             {
+                pause = false;
+
+                    // PauseGame();
+                    Time.timeScale = 0;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Debug.Log(" Game scene should be paused");
+
+            }*/
+
         }
-		
-	}
-
-    public void PauseGame()
-    {
-        pause = true;
-        canvas.enabled = true;
-
-        //public Scene pauseScene = p Time.timeScale;
     }
-    public void UnpauseGame()
-    {
-        pause = false;
-        canvas.enabled = false;
+
+        public void PauseGame()
+         {
+             pause = true;
+             canvas.enabled = true;
+         }
+         public void UnpauseGame()
+         {
+             pause = false;
+             canvas.enabled = false;
+         }
     }
-}
+

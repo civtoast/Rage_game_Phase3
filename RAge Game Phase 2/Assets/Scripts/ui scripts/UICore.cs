@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICore : MonoBehaviour {
+public class UICore : Pause {
 
 	public Button close;
+    
 
 	public virtual void Init()
 	{

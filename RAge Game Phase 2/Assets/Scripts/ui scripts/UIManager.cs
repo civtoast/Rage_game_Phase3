@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : UICore
+{
 
 	public static UIManager Instance;
+
+    public Button changeTo;
 
 	public Transform canvas;
     public GameObject pauseMenuPrefab, audioPrefab;
@@ -14,6 +18,12 @@ public class UIManager : MonoBehaviour {
 		if (Instance == null)
 			Instance = this;
 	}
+
+    public void BringPauseMenu()
+    {
+        GameObject obj = Instantiate(pauseMenuPrefab, canvas);
+        obj.GetComponent<>();
+    }
 
 	/*public void ShowDialogue(string text)
 	{
