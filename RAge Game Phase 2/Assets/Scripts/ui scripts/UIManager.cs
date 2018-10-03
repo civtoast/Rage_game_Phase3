@@ -8,7 +8,7 @@ public class UIManager : UICore
 
 	public static UIManager Instance;
 
-    public Button changeTo;
+    public Button changePanel;
 
 	public Transform canvas;
     public GameObject pauseMenuPrefab, audioPrefab;
@@ -19,11 +19,13 @@ public class UIManager : UICore
 			Instance = this;
 	}
 
-    public void BringPauseMenu()
+    override
+
+   /* public void BringPauseMenu()
     {
         GameObject obj = Instantiate(pauseMenuPrefab, canvas);
         obj.GetComponent<>();
-    }
+    }*/
 
 	/*public void ShowDialogue(string text)
 	{
