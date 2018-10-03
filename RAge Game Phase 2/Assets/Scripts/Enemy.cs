@@ -16,10 +16,10 @@ public class Enemy : MonoBehaviour
 {
     private EnemyState state = EnemyState.Patrol;
     private NavMeshAgent agent;
-    private WaypointSolver wpSolver;
+    public WaypointSolver wpSolver;
     public GameObject player;
     public Animator animator;
-    public Enemycontoller enemy;
+   // public Enemycontoller enemy;
     private bool dmghit;
     
     [Space]
@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         {
             state = EnemyState.Chase;
             animator.SetBool("Attack", true);
+             wpSolver.StopPatrolling();
             wpSolver.StopPatrolling();
             dmghit = true;
         }
@@ -70,8 +71,8 @@ public class Enemy : MonoBehaviour
         {
             if (state == EnemyState.Chase)
             {
-                //state = EnemyState.Patrol;
-                //wpSolver.StartPatrolling();
+                state = EnemyState.Patrol;
+                wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
                 dmghit = false;
 

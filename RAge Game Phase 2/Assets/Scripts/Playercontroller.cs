@@ -275,6 +275,7 @@ public class Playercontroller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        print("ground");
         Land();
     }
 

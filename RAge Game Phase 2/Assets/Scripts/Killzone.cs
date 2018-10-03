@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Killzone : MonoBehaviour {
 
-    public Playercontroller player;
+    //public Playercontroller player;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class Killzone : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             //set playerstate to dead
-            Destroy(other.gameObject);
+            print("Dead");
             
         }  
     }
@@ -27,7 +27,7 @@ public class Killzone : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             //set playerstate to dead
-            Destroy(collision.gameObject);            
+            print("Dead");
         }  
     }
 

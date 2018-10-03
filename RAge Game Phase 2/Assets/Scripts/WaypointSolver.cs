@@ -54,7 +54,7 @@ public class WaypointSolver : MonoBehaviour
 	public void StopPatrolling()
 	{
 		isPatrolling = false;
-		//agent.isStopped = true;
+		agent.isStopped = true;
 
 	}
 

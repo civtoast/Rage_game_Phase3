@@ -39,8 +39,9 @@ public class Bosspres : MonoBehaviour {
 
     private void Shrink()
     {
-        print("shh");
+        //print("shh");
         //animator.SetBool("Shrink", true);
+        
         //transform.position = spawnpoints[Random.Range(0, 4)].position;
         
     }
