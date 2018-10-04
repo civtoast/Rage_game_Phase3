@@ -1110,6 +1110,16 @@ Prefab:
       propertyPath: spawnpoints.Array.data[2]
       value: 
       objectReference: {fileID: 9723944}
+    - target: {fileID: 114386243793584440, guid: 01ad6af81ff62c34cb6a5a50c380475a,
+        type: 2}
+      propertyPath: maxhealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114386243793584440, guid: 01ad6af81ff62c34cb6a5a50c380475a,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1506099160}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ad6af81ff62c34cb6a5a50c380475a, type: 2}
   m_IsPrefabAsset: 0
@@ -1461,6 +1471,12 @@ Prefab:
     - {fileID: 114749596748514062, guid: a38c0526283af804e877b30176762d24, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a38c0526283af804e877b30176762d24, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1506099160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114882654126487086, guid: a38c0526283af804e877b30176762d24,
+    type: 2}
+  m_PrefabInternal: {fileID: 1473802345}
+  m_Script: {fileID: 11500000, guid: 10550cd9951f49144bfd9829639ba065, type: 3}
 --- !u!1 &1602811922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,7 +2150,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2015581403
 MonoBehaviour:

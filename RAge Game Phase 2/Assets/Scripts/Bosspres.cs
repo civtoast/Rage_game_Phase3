@@ -10,7 +10,8 @@ public class Bosspres : MonoBehaviour
     public Transform[] spawnpoints;
     public int tries = 0;
     public int maxhealth = 100;
-    int currentHealth; 
+    int currentHealth;
+    public Playercontroller player;
     // Use this for initialization
     void Start()
     {
@@ -32,10 +33,8 @@ public class Bosspres : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-
             animator.SetFloat("Blend", Random.Range(1, 3));
-
+            player.TakeDamage(30);
         }
         if (other.CompareTag("Shot"))
         {

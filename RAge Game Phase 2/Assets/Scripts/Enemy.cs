@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
    // public Enemycontoller enemy;
     private bool dmghit;
-    
+    private Playercontroller play;
+
     [Space]
     [Header("Enemy Stats")]
     public float maxHealth = 100;
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
     //public Text enemyNameText;
     public Text healthText;
     public Slider healthBar;
-    private Playercontroller play;
+    
     
 
 
