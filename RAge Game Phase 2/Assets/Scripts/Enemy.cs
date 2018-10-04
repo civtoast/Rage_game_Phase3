@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         {
             if (state == EnemyArenaState.Chase)
             {
-                
+                print("wololo");
                 state = EnemyArenaState.Patrol;
                 wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
@@ -104,10 +104,10 @@ public class Enemy : MonoBehaviour
         {
             animator.SetFloat("Walk", agent.velocity.magnitude);
         }
-        if (state == EnemyArenaState.Chase)
-        {
+      //  if (state == EnemyArenaState.Chase)
+       // {
          agent.SetDestination(player.transform.position);
-        }
+       // }
         if (state == EnemyArenaState.Chase && timeToNextAttack < 0 && dmghit == true)
         {
             print("wow");
