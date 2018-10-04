@@ -7944,6 +7944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 344944134}
   tolerance: 0.5
+  waypointname: Waypointgroup 1
 --- !u!95 &715221666
 Animator:
   serializedVersion: 3
@@ -18493,6 +18494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 1728990356}
   tolerance: 0.5
+  waypointname: Waypointgroup 2
 --- !u!95 &1918106160
 Animator:
   serializedVersion: 3

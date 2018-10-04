@@ -9,17 +9,18 @@ public class WaypointSolver : MonoBehaviour
 	public float tolerance = 0.5f;
 	private NavMeshAgent agent;
 	private Transform currentWaypoint = null;
+    public string waypointname = "waypointgroup";
 
-	
 
-	private bool isPatrolling = true;
+
+    private bool isPatrolling = true;
 
 	private int waypointIndex;
 	
 	// Use this for initialization
 	void Start ()
 	{
-        waypoints = GameObject.Find("waypointgroup").GetComponent<WaypointGroup>();
+        waypoints = GameObject.Find(waypointname).GetComponent<WaypointGroup>();
         agent = GetComponent<NavMeshAgent>();
 		waypointIndex = waypoints.GetNearestWaypointIndex(transform);
 		
