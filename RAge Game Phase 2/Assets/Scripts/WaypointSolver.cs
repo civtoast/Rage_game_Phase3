@@ -66,4 +66,5 @@ public class WaypointSolver : MonoBehaviour
 		waypointIndex = waypoints.GetNearestWaypointIndex(transform);
 		SetWaypoint();
 	}
+            
 }
