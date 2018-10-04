@@ -718,13 +718,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549531063803108}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83363ac0506d914da90e33059ddc5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
   tolerance: 0.5
+  waypointname: waypointgroup
 --- !u!114 &114520391574724472
 MonoBehaviour:
   m_ObjectHideFlags: 1
