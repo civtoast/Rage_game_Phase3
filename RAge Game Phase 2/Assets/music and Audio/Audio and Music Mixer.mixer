@@ -9,8 +9,8 @@ AudioMixerController:
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
-  - {fileID: 24500006}
   - {fileID: 245727537941266528}
+  - {fileID: 24500006}
   - {fileID: 245679716261108094}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
@@ -18,13 +18,13 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: a832bea4c38c8e44391aecbf7cd2b596
-    name: master
+    name: Master
   - guid: 9713a4f854d9cea45a6d13f981d737dd
-    name: ambient
+    name: Ambient
   - guid: 3e506666857eedc4794588b84caeba0c
-    name: music
+    name: Music
   - guid: d6145d8a11e7ad64480e7d54a0461ace
-    name: sfx
+    name: SFX
   m_AudioMixerGroupViews:
   - guids:
     - 7108cfbc757d189419fea0b388104217
@@ -76,12 +76,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 485be8e898ce2af44b64986c34e22550
   m_FloatValues:
-    a832bea4c38c8e44391aecbf7cd2b596: 0
+    a832bea4c38c8e44391aecbf7cd2b596: -10
     c4b53045d0c411442a734774c55f3a0e: 0.927
-    3e506666857eedc4794588b84caeba0c: 7.231059
+    3e506666857eedc4794588b84caeba0c: 2.7826033
     aa48cd86bfe5b8149aaa66e6a5fb36a4: 0.671
     f054f3f69d5e3e54a9ddef418b7fb7c3: 1743
-    9713a4f854d9cea45a6d13f981d737dd: -0.19117343
+    9713a4f854d9cea45a6d13f981d737dd: -7.5501633
     0621eb693e5e9bd43a80e0093897a47b: 1.36
     d6145d8a11e7ad64480e7d54a0461ace: 20
     6077844dd2ae16a4d91cb9d0ff63a693: 0
