@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 
-public enum EnemyState
+public enum EnemyArenaState
 {
     Patrol,
     Chase,
@@ -14,7 +14,7 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
-    private EnemyState state = EnemyState.Patrol;
+    private EnemyArenaState state = EnemyArenaState.Patrol;
     private NavMeshAgent agent;
     public WaypointSolver wpSolver;
     public GameObject player;
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         wpSolver = GetComponent<WaypointSolver>();
         player = GameObject.FindGameObjectWithTag("Player");
-        state = EnemyState.Chase;
+        state = EnemyArenaState.Chase;
         currentHealth = maxHealth;
         UpdateHealthUI();
         play = FindObjectOfType<Playercontroller>();
@@ -58,10 +58,10 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-             state = EnemyState.Chase;
+             state = EnemyArenaState.Chase;
              animator.SetBool("Attack", true);
              wpSolver.StopPatrolling();
-             wpSolver.StopPatrolling();
+             //wpSolver.StopPatrolling();
              dmghit = true;
             print(dmghit);
         }
@@ -71,10 +71,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (state == EnemyState.Chase)
+            if (state == EnemyArenaState.Chase)
             {
                 
-                state = EnemyState.Patrol;
+                state = EnemyArenaState.Patrol;
                 wpSolver.StartPatrolling();
                 animator.SetBool("Attack", false);
                 dmghit = false;
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
-        if (state == EnemyState.Dead)
+        if (state == EnemyArenaState.Dead)
         {
             //enemy.enemycount -= 1;
             if (Spawnmanager.enemywave.Contains(this))
@@ -104,11 +104,11 @@ public class Enemy : MonoBehaviour
         {
             animator.SetFloat("Walk", agent.velocity.magnitude);
         }
-        if (state == EnemyState.Chase)
+        if (state == EnemyArenaState.Chase)
         {
          agent.SetDestination(player.transform.position);
         }
-        if (state == EnemyState.Chase && timeToNextAttack < 0 && dmghit == true)
+        if (state == EnemyArenaState.Chase && timeToNextAttack < 0 && dmghit == true)
         {
             print("wow");
             timeToNextAttack = Random.Range(minAttackDelay, maxAttackdelay);
@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour
         {
             currentHealth = 0;
             //wpSolver.SetState(PatrolState.Dead);
-            state = EnemyState.Dead;
+            state = EnemyArenaState.Dead;
         }
 
         UpdateHealthUI();

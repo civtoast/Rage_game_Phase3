@@ -616,7 +616,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015433123875018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 226.03859, y: 1.0071416, z: 171.29674}
+  m_LocalPosition: {x: 212.22, y: 1.0071416, z: 200.4571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617727706013236}
@@ -735,7 +735,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &95294891349558880
 Animator:
@@ -988,9 +988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537c90d4bb6b0946bf20a907ff820ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wpSolver: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 95294891349558880}
-  enemy: {fileID: 0}
   maxHealth: 100
   enemyName: 
   minAttackDelay: 1

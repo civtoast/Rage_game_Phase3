@@ -122,7 +122,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.9914666
-        functionName: Dead()
+        functionName: Dead
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

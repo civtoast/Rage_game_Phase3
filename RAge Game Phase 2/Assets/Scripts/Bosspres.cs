@@ -55,9 +55,13 @@ public class Bosspres : MonoBehaviour {
     }
     public void Grow()
     {
-        transform.position = spawnpoints[Random.Range(0, 3)].position;
+        if (animator.GetBool("Shrink")== true)
+        {
+         transform.position = spawnpoints[Random.Range(0, 3)].position;
         animator.SetBool("Shrink", false);
         animator.SetBool("Grow", true);
         StartCoroutine(Wait());
+        }
+       
     }
 }

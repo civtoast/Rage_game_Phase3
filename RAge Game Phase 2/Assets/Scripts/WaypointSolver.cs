@@ -19,7 +19,8 @@ public class WaypointSolver : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		agent = GetComponent<NavMeshAgent>();
+        waypoints = GameObject.Find("waypointgroup").GetComponent<WaypointGroup>();
+        agent = GetComponent<NavMeshAgent>();
 		waypointIndex = waypoints.GetNearestWaypointIndex(transform);
 		
 	}
@@ -53,8 +54,8 @@ public class WaypointSolver : MonoBehaviour
 
 	public void StopPatrolling()
 	{
-		isPatrolling = false;
-		agent.isStopped = true;
+		//isPatrolling = false;
+		//agent.isStopped = true;
 
 	}
 
