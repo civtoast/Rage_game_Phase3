@@ -9,40 +9,55 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1201264645556768}
+  m_RootGameObject: {fileID: 1844266058576014}
   m_IsPrefabAsset: 1
---- !u!1 &1201264645556768
+--- !u!1 &1844266058576014
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 224844469172507078}
-  - component: {fileID: 82045035023629360}
-  - component: {fileID: 114586706269712618}
-  m_Layer: 5
-  m_Name: Music Manager
+  - component: {fileID: 4818962218770800}
+  - component: {fileID: 82309550559295768}
+  - component: {fileID: 166186732535773390}
+  - component: {fileID: 170233402791616996}
+  - component: {fileID: 168965176927165636}
+  - component: {fileID: 164200873968579932}
+  m_Layer: 0
+  m_Name: Track_1_Full_Rythmn Section-St
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &82045035023629360
+--- !u!4 &4818962218770800
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844266058576014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82309550559295768
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201264645556768}
+  m_GameObject: {fileID: 1844266058576014}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243964312954745606, guid: c39282e5bf69553438c28fa4c1a62dea,
-    type: 2}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f8f2df509f6e7b9429382f1ec3443827, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -124,32 +139,58 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114586706269712618
-MonoBehaviour:
+--- !u!164 &164200873968579932
+AudioReverbFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201264645556768}
+  m_GameObject: {fileID: 1844266058576014}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d348ca9990e77de4f9314ee83a772b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &224844469172507078
-RectTransform:
+  m_DryLevel: -7039
+  m_Room: -330
+  m_RoomHF: -2018
+  m_DecayTime: 7.2
+  m_DecayHFRatio: 0.6
+  m_ReflectionsLevel: -1892
+  m_ReverbLevel: -416
+  m_ReverbDelay: 0.017
+  m_Diffusion: 95.5
+  m_Density: 92.2
+  m_HFReference: 6274
+  m_RoomLF: -1899
+  m_LFReference: 250
+  m_ReflectionsDelay: 0.039
+  m_ReverbPreset: 27
+--- !u!166 &166186732535773390
+AudioChorusFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201264645556768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_GameObject: {fileID: 1844266058576014}
+  m_Enabled: 1
+  m_DryMix: 0.5
+  m_WetMix1: 0.5
+  m_WetMix2: 0.5
+  m_WetMix3: 0.5
+  m_Delay: 40
+  m_Rate: 0.8
+  m_Depth: 0.03
+--- !u!168 &168965176927165636
+AudioEchoFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844266058576014}
+  m_Enabled: 1
+  m_Delay: 500
+  m_DecayRatio: 0.5
+  m_WetMix: 1
+  m_DryMix: 1
+--- !u!170 &170233402791616996
+AudioDistortionFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844266058576014}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5

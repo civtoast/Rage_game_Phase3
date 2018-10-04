@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class DontDestoyScene : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public static DontDestoyScene instance;
+            
+    private void Awake()
+    {
+        if (instance== null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         DontDestroyOnLoad(this);
 ;	}
 	

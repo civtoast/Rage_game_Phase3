@@ -5064,6 +5064,121 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 458898365}
   m_Mesh: {fileID: 4300000, guid: 53ec3152f3f2b83428b32410163fd72f, type: 3}
+--- !u!1001 &460949106
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224844469172507078, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82045035023629360, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b12e96d95cd9464ab466c0f6f9ab84f, type: 3}
+    - target: {fileID: 82045035023629360, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82045035023629360, guid: 7f9dd7f88c762de4da530f8557a275ac,
+        type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f9dd7f88c762de4da530f8557a275ac, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &472116921
 GameObject:
   m_ObjectHideFlags: 0

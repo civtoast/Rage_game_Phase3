@@ -11,6 +11,7 @@ AudioMixerController:
   m_Snapshots:
   - {fileID: 24500006}
   - {fileID: 245727537941266528}
+  - {fileID: 245679716261108094}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -76,9 +77,15 @@ AudioMixerSnapshotController:
   m_SnapshotID: 485be8e898ce2af44b64986c34e22550
   m_FloatValues:
     a832bea4c38c8e44391aecbf7cd2b596: 0
+    c4b53045d0c411442a734774c55f3a0e: 0.927
     3e506666857eedc4794588b84caeba0c: 7.231059
+    aa48cd86bfe5b8149aaa66e6a5fb36a4: 0.671
+    f054f3f69d5e3e54a9ddef418b7fb7c3: 1743
     9713a4f854d9cea45a6d13f981d737dd: -0.19117343
+    0621eb693e5e9bd43a80e0093897a47b: 1.36
     d6145d8a11e7ad64480e7d54a0461ace: 20
+    6077844dd2ae16a4d91cb9d0ff63a693: 0
+    766fa77e5119ec44fbcea9aac97d9b14: 5.2
   m_TransitionOverrides: {}
 --- !u!243 &243073380213563158
 AudioMixerGroupController:
@@ -127,10 +134,28 @@ AudioMixerGroupController:
   m_Pitch: 0621eb693e5e9bd43a80e0093897a47b
   m_Effects:
   - {fileID: 244681607615983236}
+  - {fileID: 244995741980625610}
+  - {fileID: 244002580644626190}
+  - {fileID: 244459668471567900}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &244002580644626190
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 495c26645a00167438fb143ee141ecc0
+  m_EffectName: Distortion
+  m_MixLevel: 418f73801ad0f2e438ea583add1c7726
+  m_Parameters:
+  - m_ParameterName: Level
+    m_GUID: aa48cd86bfe5b8149aaa66e6a5fb36a4
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244204548683377120
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -157,6 +182,27 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244459668471567900
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: ef254e9ba9ed63f43a5c4421b06a49e3
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 008e125cd2d45e9489ed5c6e73a86edc
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: c4b53045d0c411442a734774c55f3a0e
+  - m_ParameterName: FFT size
+    m_GUID: f7f70fed00d23d54bb45f86435057d1f
+  - m_ParameterName: Overlap
+    m_GUID: a78d9b82fb525384c8e546daf5b7973e
+  - m_ParameterName: Max channels
+    m_GUID: 6077844dd2ae16a4d91cb9d0ff63a693
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244681607615983236
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -170,6 +216,43 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244995741980625610
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: f545ebdee11c0f340b35d733c80fbdb9
+  m_EffectName: Highpass
+  m_MixLevel: 49390cfed4423bd4b80702fafb1684fd
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: f054f3f69d5e3e54a9ddef418b7fb7c3
+  - m_ParameterName: Resonance
+    m_GUID: 766fa77e5119ec44fbcea9aac97d9b14
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &245679716261108094
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: more omnious homescreen music
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 421d6fd65ef67674f98a07822c8e213c
+  m_FloatValues:
+    a832bea4c38c8e44391aecbf7cd2b596: 0
+    c4b53045d0c411442a734774c55f3a0e: 0.927
+    3e506666857eedc4794588b84caeba0c: 7.231059
+    aa48cd86bfe5b8149aaa66e6a5fb36a4: 0.671
+    f054f3f69d5e3e54a9ddef418b7fb7c3: 1743
+    9713a4f854d9cea45a6d13f981d737dd: -0.19117343
+    0621eb693e5e9bd43a80e0093897a47b: 1.36
+    d6145d8a11e7ad64480e7d54a0461ace: 20
+    6077844dd2ae16a4d91cb9d0ff63a693: 0
+    766fa77e5119ec44fbcea9aac97d9b14: 5.2
+  m_TransitionOverrides: {}
 --- !u!245 &245727537941266528
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
